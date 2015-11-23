@@ -1,13 +1,19 @@
 package shuowong.github.androidmvp;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import shuowong.github.androidmvp.presenter.BasePresenterActivity;
+import shuowong.github.androidmvp.view.base.BaseView;
 
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends BasePresenterActivity<BaseView> {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_base);
+    protected void onViewDidLoad() {
+        super.onViewDidLoad();
     }
+
+    @Override
+    protected Class<BaseView> getViewClass() {
+        return BaseView.class;
+    }
+
+
 }
