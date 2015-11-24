@@ -4,14 +4,14 @@ package shuowong.github.androidmvp.api;
 /**
  * Created by WANGSHUO on 11/23/15.
  */
-public class NormalResponse<T> {
+public class Response<T> {
 
     private String result;
     private String msg;
     private T obj;
     private T objs;
 
-    public NormalResponse(String result, String msg) {
+    public Response(String result, String msg) {
         this.result = result;
         this.msg = msg;
     }

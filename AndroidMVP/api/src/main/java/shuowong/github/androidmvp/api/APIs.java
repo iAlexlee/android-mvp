@@ -5,7 +5,7 @@ package shuowong.github.androidmvp.api;
  */
 public interface APIs {
 
-    NormalResponse<Void> getUserDesc();
+    Response<Void> getUserDesc();
 
 
 }
