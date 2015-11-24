@@ -3,6 +3,8 @@ package shuowong.github.androidmvp.presenter;
 import android.app.Activity;
 import android.os.Bundle;
 
+import shuowong.github.androidmvp.BaseApplication;
+import shuowong.github.androidmvp.biz.base.AppAction;
 import shuowong.github.androidmvp.view.IAppViewDelegate;
 
 /**
@@ -11,10 +13,14 @@ import shuowong.github.androidmvp.view.IAppViewDelegate;
 public abstract  class BasePresenterActivity<V extends IAppViewDelegate>  extends Activity {
 
     protected V viewDelegate;
+    protected AppAction appAction;
+    protected BaseApplication application;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        application = (BaseApplication) getApplication();
+        appAction = application.getAppAction();
 
         try {
             viewDelegate = getViewClass().newInstance();

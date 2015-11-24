@@ -22,7 +22,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:22.2.1'
-    compile 'com.squareup.okhttp:okhttp:2.6.0'
-    compile project(':utils')
+    compile 'com.github.zhaokaiqiang.klog:library:1.1.0'
+    compile 'com.bugtags.library:bugtags-lib:latest.integration'
 
 }

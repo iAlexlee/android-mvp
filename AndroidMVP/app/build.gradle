@@ -12,9 +12,14 @@ android {
         versionName "1.0"
     }
     buildTypes {
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            buildConfigField "boolean", "LOG_DEBUG", "false"
         }
     }
 }
@@ -24,6 +29,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:22.2.1'
     compile 'com.android.support:design:22.2.1'
-    compile project(':api')
+
+    compile project(':biz')
+    compile project(':utils')
 
 }
