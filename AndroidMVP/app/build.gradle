@@ -18,7 +18,6 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
             buildConfigField "boolean", "LOG_DEBUG", "false"
         }
     }
@@ -31,5 +30,6 @@ dependencies {
     compile 'com.android.support:design:22.2.1'
     compile project(':biz')
     compile project(':utils')
+//    androidTestCompile 'com.squareup.assertj:assertj-android:1.1.1'
 
 }

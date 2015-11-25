@@ -24,8 +24,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.2.1'
     // klog
     compile 'com.github.zhaokaiqiang.klog:library:1.1.0'
-    // bugtags
-    compile 'com.bugtags.library:bugtags-lib:latest.integration'
     // event-bus
     compile 'de.greenrobot:eventbus:2.4.0'
 

@@ -18,8 +18,9 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        KLog.init(BuildConfig.LOG_DEBUG);
         appAction = new AppActionImpl(this);
+
+        KLog.init(BuildConfig.LOG_DEBUG);
     }
 
     public AppAction getAppAction(){ return appAction; }
