@@ -5,10 +5,12 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.view.View;
 import android.widget.Toast;
+
 import com.socks.library.KLog;
 
 import de.greenrobot.event.EventBus;
 import shuowong.github.androidmvp.R;
+import shuowong.github.androidmvp.activites.proxy.ProxyActivity;
 import shuowong.github.androidmvp.biz.base.AppCallbackListener;
 import shuowong.github.androidmvp.broadcast.ConnectionChangeReceiver;
 import shuowong.github.androidmvp.events.ConnectionChangedEvent;
@@ -25,9 +27,9 @@ public class BaseActivity extends BasePresenterActivity<BaseView> {
     protected void onViewDidLoad() {
         super.onViewDidLoad();
 
-        EventBus.getDefault().register(this);
+        EventBus.getDefault().register(this, 1);
 
-        if(mNetworkStateReceiver == null) {
+        if (mNetworkStateReceiver == null) {
             mNetworkStateReceiver = new ConnectionChangeReceiver();
         }
 
@@ -80,6 +82,16 @@ public class BaseActivity extends BasePresenterActivity<BaseView> {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(BaseActivity.this, TestEventActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        viewDelegate.get(R.id.button2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BaseActivity.this, ProxyActivity.class);
+                intent.putExtra(ProxyActivity.EXTRA_DEX_PATH, "/mnt/sdcard/plugin-release.apk");
+                intent.putExtra(ProxyActivity.EXTRA_CLASS, "shuowong.github.androidmvp.plugin.MainActivity");
                 startActivity(intent);
             }
         });

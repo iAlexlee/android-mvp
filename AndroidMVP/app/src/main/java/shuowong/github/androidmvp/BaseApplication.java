@@ -23,5 +23,7 @@ public class BaseApplication extends Application {
         KLog.init(BuildConfig.LOG_DEBUG);
     }
 
-    public AppAction getAppAction(){ return appAction; }
+    public AppAction getAppAction() {
+        return appAction;
+    }
 }

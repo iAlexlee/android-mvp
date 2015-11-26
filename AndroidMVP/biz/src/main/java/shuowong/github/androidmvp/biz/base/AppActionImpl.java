@@ -2,10 +2,7 @@ package shuowong.github.androidmvp.biz.base;
 
 import android.content.Context;
 import android.os.AsyncTask;
-
 import com.socks.library.KLog;
-
-import de.greenrobot.event.EventBus;
 import shuowong.github.androidmvp.api.APIs;
 import shuowong.github.androidmvp.api.Response;
 import shuowong.github.androidmvp.api.impl.APIsImpl;

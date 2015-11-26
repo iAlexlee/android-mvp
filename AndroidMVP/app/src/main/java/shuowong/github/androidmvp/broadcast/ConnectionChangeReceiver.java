@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
+
 import de.greenrobot.event.EventBus;
 import shuowong.github.androidmvp.events.ConnectionChangedEvent;
 import shuowong.github.androidmvp.utils.Network;
@@ -19,7 +20,7 @@ public class ConnectionChangeReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
 
         int currentType = Network.getConnectedType(context);
-        if(currentType != lastType) {
+        if (currentType != lastType) {
             String currentTypeName = "UNKNOW";
 
             switch (currentType) {

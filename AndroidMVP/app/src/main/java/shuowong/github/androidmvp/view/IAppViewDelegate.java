@@ -11,5 +11,6 @@ import android.view.ViewGroup;
 public interface IAppViewDelegate {
 
     void init(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
+
     View getRootView();
 }

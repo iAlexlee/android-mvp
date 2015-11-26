@@ -24,13 +24,17 @@
         </activity>
         <activity
             android:name=".activites.TestEventActivity"
-            android:label="@string/app_name">
-        </activity>
+            android:label="@string/app_name"></activity>
+        <activity
+            android:name=".activites.proxy.ProxyActivity"
+            android:label="@string/app_name"></activity>
     </application>
 
-    <receiver android:name=".broadcast.ConnectionChangeReceiver" android:label="NetworkConnection">
+    <receiver
+        android:name=".broadcast.ConnectionChangeReceiver"
+        android:label="NetworkConnection">
         <intent-filter>
-        <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
         </intent-filter>
     </receiver>
 

@@ -52,6 +52,8 @@ public abstract class BasePresenterFragment<V extends IAppViewDelegate> extends 
     }
 
     protected abstract Class<V> getViewClass();
-    protected void bindEventListener(){}
+
+    protected void bindEventListener() {
+    }
 
 }

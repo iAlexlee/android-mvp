@@ -13,7 +13,8 @@ public class BaseView extends AppViewDelegate {
     public int getRootLayoutID() {
         return R.layout.activity_base;
     }
+
     public void setButtonText(int id, String msg) {
-        ((Button)get(id)).setText(msg);
+        ((Button) get(id)).setText(msg);
     }
 }

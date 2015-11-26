@@ -10,10 +10,10 @@ import android.view.ViewGroup;
  * Created by WANGSHUO on 11/23/15.
  */
 public abstract class AppViewDelegate implements IAppViewDelegate {
-    public abstract int getRootLayoutID();
-
-    protected View rootView;
     protected final SparseArray<View> mViews = new SparseArray<View>();
+    protected View rootView;
+
+    public abstract int getRootLayoutID();
 
     @Override
     public void init(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -10,7 +10,7 @@ import shuowong.github.androidmvp.view.IAppViewDelegate;
 /**
  * Created by WANGSHUO on 11/11/15.
  */
-public abstract  class BasePresenterActivity<V extends IAppViewDelegate>  extends Activity {
+public abstract class BasePresenterActivity<V extends IAppViewDelegate> extends Activity {
 
     protected V viewDelegate;
     protected AppAction appAction;
@@ -46,8 +46,14 @@ public abstract  class BasePresenterActivity<V extends IAppViewDelegate>  extend
     }
 
     protected abstract Class<V> getViewClass();
-    protected void onViewDidLoad(){}
-    protected void onDestroyView(){}
-    protected void bindEventListener(){}
+
+    protected void onViewDidLoad() {
+    }
+
+    protected void onDestroyView() {
+    }
+
+    protected void bindEventListener() {
+    }
 
 }
