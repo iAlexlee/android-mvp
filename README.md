@@ -11,18 +11,18 @@
 * 工具
 
 
-### 项目结构
----
+## 项目结构
 项目基于Android Studio创建，使用Gradle进行管理
 
+![studio](http://7xlay8.com2.z0.glb.qiniucdn.com/QQ20151127-0.png)
+
 #### Modules
----
 - api: 模块用于实现接口的定义与实现
 - biz: 模块依赖于api模块，用于实现业务逻辑并为view层提供方法
 - model: 模块（Model）用于定义实体
 - utils: 项目工具类模块
 
 #### Application
----
 - app: 项目主应用（View,Presenter），模块依赖于biz模块
 - plugin: 项目插件应用
+
