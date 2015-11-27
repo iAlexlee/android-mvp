@@ -71,7 +71,7 @@
 
 
 
-	在项目中的使用：**监听网络变化**
+	**在项目中的使用：监听网络变化**
 	
 		
 		public class BaseActivity extends BasePresenterActivity<BaseView> {
@@ -85,8 +85,13 @@
         	EventBus.getDefault().register(this, 1);
         	// ...
 		}
+		
+		public void onEventMainThread(ConnectionChangedEvent event) {
 
-	
+        Toast.makeText(getApplicationContext(), event.getTypeName(), Toast.LENGTH_LONG).show();
+    }
+
+	在Presenter层的Activity中注册为订阅者，并订阅ConnectionChangedEvent事件。
 
 
 
