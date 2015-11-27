@@ -72,19 +72,21 @@
 
 
 	在项目中的使用：**监听网络变化**
-	‘’‘
-	public class BaseActivity extends BasePresenterActivity<BaseView> {
+	
+		
+		public class BaseActivity extends BasePresenterActivity<BaseView> {
 
-    ConnectionChangeReceiver mNetworkStateReceiver;
+    	ConnectionChangeReceiver mNetworkStateReceiver;
 
-    @Override
-    protected void onViewDidLoad() {
-        super.onViewDidLoad();
+    	@Override
+    	protected void onViewDidLoad() {
+        	super.onViewDidLoad();
 
-        EventBus.getDefault().register(this, 1);
-	}
+        	EventBus.getDefault().register(this, 1);
+        	// ...
+		}
 
-	’‘’
+	
 
 
 
