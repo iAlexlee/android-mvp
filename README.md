@@ -103,6 +103,7 @@
         	int currentType = Network.getConnectedType(context);
         	if (currentType != lastType) {
             	String currentTypeName = "UNKNOW";
+            	// ...
             	EventBus.getDefault().post(new ConnectionChangedEvent(currentType, currentTypeName));
         	}
         	lastType = currentType;
@@ -116,3 +117,4 @@
 
 ## 插件化实现
 
+在主项目app中通过ProxyActivity来代理访问plugin apk中的Activity，从而实现插件化。
