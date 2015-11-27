@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BasePluginActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

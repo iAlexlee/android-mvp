@@ -2,12 +2,11 @@ package shuowong.github.androidmvp.plugin;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class BaseActivity extends Activity {
+public class BasePluginActivity extends Activity {
 
     public static final String FROM = "extra.from";
     public static final int FROM_EXTERNAL = 0;

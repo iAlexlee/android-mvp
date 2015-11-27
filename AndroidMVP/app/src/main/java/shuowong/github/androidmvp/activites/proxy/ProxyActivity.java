@@ -36,25 +36,35 @@ public class ProxyActivity extends Activity {
         mDexPath = getIntent().getStringExtra(EXTRA_DEX_PATH);  // apk path
         mClass = getIntent().getStringExtra(EXTRA_CLASS);       // apk's activity
 
-        loadResources();
-
         if (mClass == null) {
-            launchTargetActivity();
+            launchPluginActivity();
         } else {
-            launchTargetActivity(mClass);
+            launchPluginActivity(mClass);
         }
     }
 
-    protected void launchTargetActivity() {
+    @Override
+    public AssetManager getAssets() {
+        return mAssetManager == null ? super.getAssets() : mAssetManager;
+    }
+
+    @Override
+    public Resources getResources() {
+        return mResources == null ? super.getResources() : mResources;
+    }
+
+    protected void launchPluginActivity() {
         PackageInfo packageInfo = getPackageManager().getPackageArchiveInfo(mDexPath, 1);
         if (packageInfo.activities != null && packageInfo.activities.length > 0) {
             String activityName = packageInfo.activities[0].name;
             mClass = activityName;
-            launchTargetActivity(mClass);
+            launchPluginActivity(mClass);
         }
     }
 
-    protected void launchTargetActivity(final String className) {
+    protected void launchPluginActivity(final String className) {
+        loadPluginResources();
+
         File dexOutputDir = this.getDir("dex", 0);
         final String dexOutputPath = dexOutputDir.getAbsolutePath();
         ClassLoader localClassLoader = ClassLoader.getSystemClassLoader();
@@ -82,7 +92,7 @@ public class ProxyActivity extends Activity {
 
     }
 
-    protected void loadResources() {
+    protected void loadPluginResources() {
         try {
             AssetManager assetManager = AssetManager.class.newInstance();
             Method addAssetPath = assetManager.getClass().getMethod("addAssetPath", String.class);
@@ -98,13 +108,4 @@ public class ProxyActivity extends Activity {
         mTheme.setTo(super.getTheme());
     }
 
-    @Override
-    public AssetManager getAssets() {
-        return mAssetManager == null ? super.getAssets() : mAssetManager;
-    }
-
-    @Override
-    public Resources getResources() {
-        return mResources == null ? super.getResources() : mResources;
-    }
 }
