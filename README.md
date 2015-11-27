@@ -88,12 +88,29 @@
 		
 		public void onEventMainThread(ConnectionChangedEvent event) {
 
-        Toast.makeText(getApplicationContext(), event.getTypeName(), Toast.LENGTH_LONG).show();
-    }
+        	Toast.makeText(getApplicationContext(), event.getTypeName(), Toast.LENGTH_LONG).show();
+    	}
 
-	在Presenter层的Activity中注册为订阅者，并订阅ConnectionChangedEvent事件。
+	在Presenter层的Activity中注册为订阅者，并订阅ConnectionChangedEvent事件，在接收到事件后Toast当前网络状态。
 
+		public class ConnectionChangeReceiver extends BroadcastReceiver {
 
+    	public int lastType = -1;
+
+    	@Override
+    	public void onReceive(Context context, Intent intent) {
+
+        	int currentType = Network.getConnectedType(context);
+        	if (currentType != lastType) {
+            	String currentTypeName = "UNKNOW";
+            	EventBus.getDefault().post(new ConnectionChangedEvent(currentType, currentTypeName));
+        	}
+        	lastType = currentType;
+    	}
+		}
+
+	在广播组件中监听网络状态的改变，并将状态post给订阅者。
+	
 
 
 
