@@ -36,7 +36,7 @@
 
 明确Activity(或Fragment)职责，**将Activity(或Fragment)作为Presenter使用**，把视图部分拆分出来，避免Activity(或Fragment)过于臃肿，难以维护。
 
-#### app模块(View、Presenter)
+#### App模块(View、Presenter)
 
 ![studio](http://7xlay8.com2.z0.glb.qiniucdn.com/QQ20151127-1.png)
 
@@ -57,7 +57,7 @@
 	继承自AppViewDelegate，实现视图的相关逻辑。
 	
 
-#### model模块(Model)
+#### Model模块(Model)
 
 ![studio](http://7xlay8.com2.z0.glb.qiniucdn.com/QQ20151127-2.png)
 
@@ -69,6 +69,26 @@
 
 	EventBus是针对Android优化的发布/订阅事件总线。主要功能是替代	Intent,Handler,BroadCast在Fragment，Activity，Service，线程之间	传递消息。将发送者和接收者解耦。
 
-![eventbus](https://github.com/greenrobot/EventBus/raw/master/EventBus-Publish-Subscribe.png)
 
+
+	在项目中的使用：**监听网络变化**
+	‘’‘
+	public class BaseActivity extends BasePresenterActivity<BaseView> {
+
+    ConnectionChangeReceiver mNetworkStateReceiver;
+
+    @Override
+    protected void onViewDidLoad() {
+        super.onViewDidLoad();
+
+        EventBus.getDefault().register(this, 1);
+	}
+
+	’‘’
+
+
+
+
+
+## 插件化实现
 
