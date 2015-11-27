@@ -6,8 +6,8 @@
 ## 目录
 * 项目结构
 * MVP实现
-* 第三方库引用说明
-* apk插件化实现说明
+* 第三方库引用
+* apk插件化实现
 * 工具
 
 
@@ -19,7 +19,7 @@
 #### Modules
 
 - api	: 模块用于实现接口的定义与实现
-- biz	: 模块依赖于api模块，用于实现业务逻辑并为view层提供方法
+- biz	: 模块依赖于api模块，用于实现业务逻辑并为Presenter层提供业务方法
 - model	: 模块用于定义实体
 - utils	: 项目工具类模块
 
@@ -34,15 +34,15 @@
 
 #### 使用目的
 
-明确Activity(或Fragment)职责，将Activity(或Fragment)作为Presenter使用，把视图部分拆分出来，避免Activity(或Fragment)过于臃肿，难以维护。
+明确Activity(或Fragment)职责，**将Activity(或Fragment)作为Presenter使用**，把视图部分拆分出来，避免Activity(或Fragment)过于臃肿，难以维护。
 
-#### app模块
+#### app模块(View、Presenter)
 
 ![studio](http://7xlay8.com2.z0.glb.qiniucdn.com/QQ20151127-1.png)
 
 - **BasePresenterActivity(BasePresenterFragment)**
 
-	作为Presenter的基类来使用，所以Activity(或Fragment)均需要继承自该类。用于根视图的加载，处理Activity(或Fragment)生命周期。
+	作为Presenter层的基类来使用，所有Activity(或Fragment)均需要继承自该类。用于根视图的加载，处理Activity(或Fragment)生命周期。
 	
 - **AppViewDelegate**
 
@@ -54,11 +54,19 @@
 	
 - **BaseView**
 
-	继承自AppViewDelegate，实现视图的相关逻辑
+	继承自AppViewDelegate，实现视图的相关逻辑。
 	
 
+#### model模块(Model)
+
+![studio](http://7xlay8.com2.z0.glb.qiniucdn.com/QQ20151127-2.png)
 
 
 
+## 第三方库引用
+
+- **EventBus**
+
+	EventBus是针对Android优化的发布/订阅事件总线。主要功能是替代	Intent,Handler,BroadCast在Fragment，Activity，Service，线程之间	传递消息。将发送者和接收者解耦。
 
 
