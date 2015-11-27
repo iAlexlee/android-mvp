@@ -69,4 +69,6 @@
 
 	EventBus是针对Android优化的发布/订阅事件总线。主要功能是替代	Intent,Handler,BroadCast在Fragment，Activity，Service，线程之间	传递消息。将发送者和接收者解耦。
 
+![eventbus](https://github.com/greenrobot/EventBus/raw/master/EventBus-Publish-Subscribe.png)
+
 
