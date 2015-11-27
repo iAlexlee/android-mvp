@@ -38,3 +38,27 @@
 
 #### app模块
 
+![studio](http://7xlay8.com2.z0.glb.qiniucdn.com/QQ20151127-1.png)
+
+- **BasePresenterActivity(BasePresenterFragment)**
+
+	作为Presenter的基类来使用，所以Activity(或Fragment)均需要继承自该类。用于根视图的加载，处理Activity(或Fragment)生命周期。
+	
+- **AppViewDelegate**
+
+	视图层基类，定义了视图初始化、获取视图组件、设置监听。
+	
+- **BaseActivity**
+
+	继承自BasePresenterActivity，主要用于实现业务逻辑，无需关心视图的相关工作。
+	
+- **BaseView**
+
+	继承自AppViewDelegate，实现视图的相关逻辑
+	
+
+
+
+
+
+
