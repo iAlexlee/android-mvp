@@ -5,131 +5,77 @@ import java.util.List;
 /**
  * Created by WANGSHUO on 11/25/15.
  */
-public class TestModel {
+public class TestModel implements IModel{
+
 
     /**
-     * name : wang
-     * gender : man
-     * age : 15
-     * height : 140cm
-     * addr : {"province":"beijing","city":"beijing","code":"100051"}
-     * hobby : [{"name":"billiards","code":"1"},{"name":"computerGame","code":"2"}]
+     * orgId : orgId
+     * orgName : orgName
      */
 
-    private String name;
-    private String gender;
-    private int age;
-    private String height;
+    private OrgEntity org;
     /**
-     * province : beijing
-     * city : beijing
-     * code : 100051
+     * appcode : 55
+     * subscode : subscode0
      */
 
-    private AddrEntity addr;
-    /**
-     * name : billiards
-     * code : 1
-     */
+    private List<BizEntity> biz;
 
-    private List<HobbyEntity> hobby;
-
-    public void setName(String name) {
-        this.name = name;
+    public void setOrg(OrgEntity org) {
+        this.org = org;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setBiz(List<BizEntity> biz) {
+        this.biz = biz;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public OrgEntity getOrg() {
+        return org;
     }
 
-    public void setHeight(String height) {
-        this.height = height;
+    public List<BizEntity> getBiz() {
+        return biz;
     }
 
-    public void setAddr(AddrEntity addr) {
-        this.addr = addr;
-    }
+    public static class OrgEntity {
+        private String orgId;
+        private String orgName;
 
-    public void setHobby(List<HobbyEntity> hobby) {
-        this.hobby = hobby;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public String getHeight() {
-        return height;
-    }
-
-    public AddrEntity getAddr() {
-        return addr;
-    }
-
-    public List<HobbyEntity> getHobby() {
-        return hobby;
-    }
-
-    public static class AddrEntity {
-        private String province;
-        private String city;
-        private String code;
-
-        public void setProvince(String province) {
-            this.province = province;
+        public void setOrgId(String orgId) {
+            this.orgId = orgId;
         }
 
-        public void setCity(String city) {
-            this.city = city;
+        public void setOrgName(String orgName) {
+            this.orgName = orgName;
         }
 
-        public void setCode(String code) {
-            this.code = code;
+        public String getOrgId() {
+            return orgId;
         }
 
-        public String getProvince() {
-            return province;
-        }
-
-        public String getCity() {
-            return city;
-        }
-
-        public String getCode() {
-            return code;
+        public String getOrgName() {
+            return orgName;
         }
     }
 
-    public static class HobbyEntity {
-        private String name;
-        private String code;
+    public static class BizEntity {
+        private int appcode;
+        private String subscode;
 
-        public void setName(String name) {
-            this.name = name;
+        public void setAppcode(int appcode) {
+            this.appcode = appcode;
         }
 
-        public void setCode(String code) {
-            this.code = code;
+        public void setSubscode(String subscode) {
+            this.subscode = subscode;
         }
 
-        public String getName() {
-            return name;
+        public int getAppcode() {
+            return appcode;
         }
 
-        public String getCode() {
-            return code;
+        public String getSubscode() {
+            return subscode;
         }
     }
 }

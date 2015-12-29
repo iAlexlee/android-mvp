@@ -6,6 +6,7 @@ import de.greenrobot.event.EventBus;
 import shuowong.github.androidmvp.R;
 import shuowong.github.androidmvp.events.TestEvent;
 import shuowong.github.androidmvp.presenter.BasePresenterActivity;
+import shuowong.github.androidmvp.view.IAppViewDataBinder;
 import shuowong.github.androidmvp.view.base.TestEventView;
 
 /**
@@ -36,6 +37,11 @@ public class TestEventActivity extends BasePresenterActivity<TestEventView> {
         });
 
 
+    }
+
+    @Override
+    protected IAppViewDataBinder getDataBinder() {
+        return null;
     }
 
     @Override

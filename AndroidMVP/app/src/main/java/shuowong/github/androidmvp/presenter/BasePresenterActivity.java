@@ -4,7 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 
 import shuowong.github.androidmvp.BaseApplication;
-import shuowong.github.androidmvp.biz.base.AppAction;
+import shuowong.github.androidmvp.biz.base.AppService;
+import shuowong.github.androidmvp.biz.base.AppServiceImpl;
+import shuowong.github.androidmvp.model.IModel;
+import shuowong.github.androidmvp.view.IAppViewDataBinder;
 import shuowong.github.androidmvp.view.IAppViewDelegate;
 
 /**
@@ -13,26 +16,28 @@ import shuowong.github.androidmvp.view.IAppViewDelegate;
 public abstract class BasePresenterActivity<V extends IAppViewDelegate> extends Activity {
 
     protected V viewDelegate;
-    protected AppAction appAction;
+    protected IAppViewDataBinder viewDataBinder;
     protected BaseApplication application;
+    protected AppService appAction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        viewDataBinder = getDataBinder();
         application = (BaseApplication) getApplication();
-        appAction = application.getAppAction();
+        appAction = new AppServiceImpl(this);
 
         try {
             viewDelegate = getViewClass().newInstance();
             viewDelegate.init(getLayoutInflater(), null, savedInstanceState);
             setContentView(viewDelegate.getRootView());
+//            ButterKnife.bind(this);
 
             onViewDidLoad();
             bindEventListener();
 
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -44,6 +49,14 @@ public abstract class BasePresenterActivity<V extends IAppViewDelegate> extends 
         viewDelegate = null;
         super.onDestroy();
     }
+
+    protected <D extends IModel> void notifyDataChanged(D data) {
+        if (viewDataBinder != null) {
+            viewDataBinder.bindData(viewDelegate, data);
+        }
+    }
+
+    protected abstract IAppViewDataBinder getDataBinder();
 
     protected abstract Class<V> getViewClass();
 
