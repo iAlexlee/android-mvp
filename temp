@@ -30,3 +30,9 @@ unix2dos init_data.txt
 cat init_data.txt | redis-cli -h $ip_address -p $port -a $password -n $db_name --pipe
 
 python main.py --port=3000
+
+NXT
+c1d77dc42459f2028ba81d14cde28e9b
+社区半径：
+APPKEY：ycK72CX4SMj9t3e35JY2swWE 
+SECRET: 104trNw6SXey3TWXwygjfulxN6hFQn
